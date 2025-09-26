@@ -2,7 +2,7 @@ package lesson_2;
 
 import java.math.BigInteger;
 
-public class Tasks2 {
+public class Part1 {
     public static void print100(){
         for (int i = 1; i <= 100; i++) {
             System.out.print(" " + i);
@@ -134,32 +134,19 @@ public class Tasks2 {
         }
     }
 
-//    public static void drawFirst() {
-//        int n = 4;
-//        for (int i = 1; i <= n; i++) {
-//            for (int j = 1; j <= i; j++) {
-//                System.out.print("*");
-//            }
-//            System.out.print("\t");
-//            for (int j = n; j >= i; j--) {
-//                System.out.print("*");
-//            }
-//            System.out.println();
-//        }
-//    }
-
-    public static void main(String[] args) {
-        int[] numbers = {7, 1000, 1001, 1010, 1008};
-
-//        Tasks2.print100();
-//        Tasks2.sumN(10);
-//        Tasks2.multiplicationN(20);
-//        Tasks2.sumEvenN(4);
-//        Tasks2.sumNumbers(1234);
-//        Tasks2.reversalNumbers(1234);
-//        Tasks2.findFactorial(20);
-//        Tasks2.findFirstNumberWith7Division(numbers);
-//        Tasks2.printPrimeNumbers(numbers);
-//        Tasks2.drawFirst();
+    public static void drawTriangle() {
+        for (int i = 1; i <= 4; i++) {
+            for (int j = 1; j <=i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        System.out.print("\n");
+        for (int i = 4; i >= 1; i--) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
     }
 }
