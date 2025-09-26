@@ -15,5 +15,11 @@ public class TestTask2 {
 //        Part1.findFirstNumberWith7Division(numbers);
 //        Part1.printPrimeNumbers(numbers);
 //        Part1.drawTriangle();
+
+//        Part2.switchNumber();
+//        Part2.multiplicationTable(10);
+//        Part2.converter();
+//        Part2.evenOrOdd();
+        Part2.maxNumber();
     }
 }
