@@ -113,13 +113,38 @@ public class Tasks2 {
         System.out.println(result);
     }
 
-//    public static void printPrimeNumbers(int[] numbers){
-//        for (int tmp : numbers) {
-//            for (int i = 3; i <= Math.sqrt(tmp); i += 2) {
-//                if (tmp % i == 0) {
-//                    System.out.println(tmp);
-//                }
+    public static void printPrimeNumbers(int[] numbers){
+        for (int tmp : numbers) {
+            if (tmp % 2 == 0) {
+                continue;
+            }
+
+            boolean isPrime = true;
+
+            for (int i = 3; i <= Math.sqrt(tmp); i += 2) {
+                if (tmp % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            if (isPrime) {
+                System.out.println(tmp);
+            }
+        }
+    }
+
+//    public static void drawFirst() {
+//        int n = 4;
+//        for (int i = 1; i <= n; i++) {
+//            for (int j = 1; j <= i; j++) {
+//                System.out.print("*");
 //            }
+//            System.out.print("\t");
+//            for (int j = n; j >= i; j--) {
+//                System.out.print("*");
+//            }
+//            System.out.println();
 //        }
 //    }
 
@@ -135,5 +160,6 @@ public class Tasks2 {
 //        Tasks2.findFactorial(20);
 //        Tasks2.findFirstNumberWith7Division(numbers);
 //        Tasks2.printPrimeNumbers(numbers);
+//        Tasks2.drawFirst();
     }
 }
