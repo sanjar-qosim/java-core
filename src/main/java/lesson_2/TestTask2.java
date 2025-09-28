@@ -23,5 +23,7 @@ public class TestTask2 {
 //        Part2.maxNumber();
 //        Part2.calculate();
 //        Part2.avgNumber();
+//        Part2.searchNumber();
+        Part2.guessTheNumber();
     }
 }
