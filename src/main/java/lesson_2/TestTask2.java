@@ -20,6 +20,8 @@ public class TestTask2 {
 //        Part2.multiplicationTable(10);
 //        Part2.converter();
 //        Part2.evenOrOdd();
-        Part2.maxNumber();
+//        Part2.maxNumber();
+//        Part2.calculate();
+//        Part2.avgNumber();
     }
 }

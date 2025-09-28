@@ -67,4 +67,53 @@ public class Part2 {
 
         System.out.println("The max number of yours is: " + max);
     }
+
+    public static void calculate(){
+        System.out.println("Please, enter first number:");
+        int a = scanner.nextInt();
+        System.out.println("Please, enter second number:");
+        int b = scanner.nextInt();
+        System.out.println("Please, enter the operation listed below:\n+\n-\n*\n/");
+        char c = scanner.next().charAt(0);
+        switch (c) {
+            case '+':
+                System.out.println("Result: " + a + b);
+                break;
+            case '-':
+                System.out.println("Result: " + (a - b));
+                break;
+            case '*':
+                System.out.println("Result: " + a * b);
+                break;
+            case '/':
+                System.out.println("Result: " + a / b);
+                break;
+            default:
+                System.out.println("You entered the wrong operation!");
+        }
+    }
+
+    public static void avgNumber(){
+        System.out.println("Enter a number: ");
+        int[] numbers = new int[0];
+        int sum = 0;
+
+        while (true) {
+            System.out.println("Enter the number or enter the 'end' for stop cycle and watch to result:");
+            String n = scanner.nextLine();
+            if (n.equals("end")) {
+                break;
+            }
+            int number = Integer.parseInt(n);
+            int[] newNumbers = new int[numbers.length + 1];
+            for (int i = 0; i < numbers.length; i++) {
+                newNumbers[i] = numbers[i];
+            }
+            newNumbers[numbers.length] = number;
+            numbers = newNumbers;
+            sum += number;
+        }
+
+        System.out.println("The average value is: " + ((double) sum / numbers.length));
+    }
 }
