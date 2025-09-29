@@ -12,11 +12,11 @@ public class Car {
         this.yearOfManufacture = yearOfManufacture;
     }
 
-    public String printCarInfo() {
-        return "Car{" +
+    public void printCarInfo() {
+        System.out.println("Car{" +
             "country='" + country + '\'' +
             ", model='" + model + '\'' +
             ", yearOfManufacture=" + yearOfManufacture +
-            '}';
+            '}');
     }
 }
