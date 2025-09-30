@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.stream.Stream;
 
 public class BankSystem {
 
@@ -61,7 +62,7 @@ public class BankSystem {
             }
         }
 
-        if (sender == null && receiver == null && money > 0) {
+        if (sender != null && receiver != null && money > 0) {
             if (sender.balance > money) {
                 sender.balance -= money;
                 receiver.balance += money;
