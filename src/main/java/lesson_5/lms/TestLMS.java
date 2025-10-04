@@ -10,9 +10,18 @@ public class TestLMS {
         Student ivan = new Student(20454754321454L, "Ivan", 16, 'm', 2);
         Course math = new Course("Math", mrJohn);
 
-        dataBase.setTutor(mrJohn);
-        dataBase.setStudent(ivan);
-        dataBase.setCourse(math);
+        dataBase.addTutor(mrJohn);
+        dataBase.addStudent(ivan);
+        dataBase.addCourse(math);
+
+        math.addStudents(ivan);
+        dataBase.addAttendanceLog(ivan, 1);
+        dataBase.addBallSystem(ivan, 5);
+
+        dataBase.getAttendanceLog();
+        dataBase.getBallSystem();
+
+        System.out.println(math.getStudents());
 
         for (Tutor tmp : dataBase.getTutors()) {
             System.out.println(tmp);

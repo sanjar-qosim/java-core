@@ -1,34 +1,35 @@
 package lesson_5.lms;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DataBase {
 
     private List<Student> students = new ArrayList<>();
     private List<Tutor> tutors = new ArrayList<>();
     private List<Course> courses = new ArrayList<>();
-    private List<Integer> attendanceLog = new ArrayList<>();
-    private List<Integer> ballSystem = new ArrayList<>();
+    private Map<Student, Integer> attendanceLog = new HashMap<>();;
 
-    public void setStudent(Student student) {
+    public void addStudent(Student student) {
         this.students.add(student);
     }
 
-    public void setTutor(Tutor tutor) {
+    public void addTutor(Tutor tutor) {
         this.tutors.add(tutor);
     }
 
-    public void setCourse(Course course) {
+    public void addCourse(Course course) {
         this.courses.add(course);
     }
 
-    public void setAttendanceLog(int attendanceLog) {
-        this.attendanceLog.add(attendanceLog);
+    public void addAttendanceLog(Student student, int attendanceLog) {
+        this.attendanceLog.put(student, attendanceLog);
     }
 
-    public void setBallSystem(int ballSystem) {
-        this.ballSystem.add(ballSystem);
+    public void addBallSystem(Student student, int ballSystem) {
+        student.setGrade(ballSystem);
     }
 
     public List<Student> getStudents() {
@@ -43,11 +44,15 @@ public class DataBase {
         return courses;
     }
 
-    public List<Integer> getAttendanceLog() {
-        return attendanceLog;
+    public void getAttendanceLog() {
+        for (Student tmp : students) {
+            System.out.println(tmp.getName() + ": " + attendanceLog.get(tmp));
+        }
     }
 
-    public List<Integer> getBallSystem() {
-        return ballSystem;
+    public void getBallSystem() {
+        for (Student tmp : students) {
+            System.out.println(tmp.getName() + ": " + tmp.getGrade());
+        }
     }
 }

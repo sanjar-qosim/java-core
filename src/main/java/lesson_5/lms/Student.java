@@ -19,9 +19,13 @@ public class Student extends User {
          this.grade = grade;
     }
 
+    public int getGrade(){
+        return this.grade;
+    }
+
     @Override
     public String toString() {
-        return "Tutor{" +
+        return "Students{" +
             "PINFL='" + getPinfl() + '\'' +
             "Name='" + getName() + '\'' +
             "Age='" + getAge() + '\'' +
