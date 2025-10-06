@@ -6,17 +6,17 @@ import java.util.List;
 public class Question {
 
     private String title;
-    private int correctAnswer;
-    private List<String> questions = new ArrayList<>();
+    private int correctAnswer = -1;
+    private List<String> options = new ArrayList<>();
 
     public Question(String title) {
         this.title = title;
     }
 
     public void createQuestion(String text, boolean isTrue) {
-        questions.add(text);
+        options.add(text);
         if (isTrue) {
-            correctAnswer = questions.size();
+            correctAnswer = options.size();
         }
     }
 
@@ -26,5 +26,13 @@ public class Question {
 
     public boolean checkQuestion(int answer) {
         return answer == correctAnswer;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public List<String> getOptions() {
+        return options;
     }
 }

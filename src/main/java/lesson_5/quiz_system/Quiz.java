@@ -45,17 +45,19 @@ public class Quiz {
     public void createQuestion() {
         System.out.println("How many questions will you create?");
         int countOfQuestions = scanner.nextInt();
+        scanner.nextLine();
 
-        for (int i = 1; i < countOfQuestions; i++) {
+        for (int i = 0; i < countOfQuestions; i++) {
             System.out.println("Please, enter a title of question:");
             String questionTitle = scanner.nextLine();
             Question question = new Question(questionTitle);
 
-            System.out.println("How many answers will you create for you \"" + questionTitle + "\" question?");
+            System.out.println("How many answers will you create for your \"" + questionTitle + "\" question?");
             int countOfAnswers = scanner.nextInt();
+            scanner.nextLine();
 
-            for (int j = 1; j < countOfQuestions; j++) {
-                System.out.println("Write the " + i + " answer:");
+            for (int j = 0; j < countOfAnswers; j++) {
+                System.out.println("Write the " + (j + 1) + " answer:");
                 String answer = scanner.nextLine();
                 System.out.println("Is it true answer?\n- true\n- false");
                 String isTrue = scanner.nextLine();
@@ -68,6 +70,27 @@ public class Quiz {
                     System.out.println("Invalid data!");
                     break;
                 }
+            }
+
+            if (question.getCorrectAnswer() != -1) {
+                allQuestions.add(question);
+                System.out.println("The \"" + question.getTitle() + "\" was created successfully!");
+            } else {
+                System.out.println("You didn't add a true option. Please, try again!");
+            }
+        }
+    }
+
+    public void startGame() {
+        for (Question tmp : allQuestions) {
+            System.out.println(tmp.getTitle());
+            System.out.println("Choose a correct answer:");
+            System.out.println(tmp.getOptions());
+            int answer = scanner.nextInt();
+            if (answer == tmp.getCorrectAnswer()) {
+                System.out.println("You win!");
+            } else {
+                System.out.println("Sorry, that was not a correct answer!\nThe correct answer is " + tmp.getCorrectAnswer());
             }
         }
     }
