@@ -6,6 +6,7 @@ public class Seats {
     private String seatClass;
     private boolean isFree;
     private String userName;
+    private String status;
 
     public Seats(int number, String seatClass) {
         this.number = number;
