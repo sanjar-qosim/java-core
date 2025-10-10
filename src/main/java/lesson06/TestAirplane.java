@@ -1,0 +1,46 @@
+package lesson06;
+
+import java.util.Scanner;
+
+public class TestAirplane {
+    public static void main(String[] args) {
+        AirplaneController airplane = new AirplaneController();
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("\n1. Show all seats");
+            System.out.println("2. Order seat");
+            System.out.println("3. Cancel seat");
+            System.out.println("4. Information about seat");
+            System.out.println("5. Exit");
+            System.out.print("Choose an option: ");
+            String choice = scanner.nextLine();
+
+            switch (choice) {
+                case "1" -> airplane.showAllSeats();
+                case "2" -> {
+                    System.out.print("Write a number of seat: ");
+                    int num = Integer.parseInt(scanner.nextLine());
+                    System.out.print("Write your name: ");
+                    String name = scanner.nextLine();
+                    airplane.bookSeat(num, name);
+                }
+                case "3" -> {
+                    System.out.print("Write a number of seat: ");
+                    int num = Integer.parseInt(scanner.nextLine());
+                    airplane.cancelBooking(num);
+                }
+                case "4" -> {
+                    System.out.print("Write a number of seat: ");
+                    int num = Integer.parseInt(scanner.nextLine());
+                    airplane.findBooking(num);
+                }
+                case "5" -> {
+                    System.out.println("Exit...");
+                    return;
+                }
+                default -> System.out.println("Invalid data!");
+            }
+        }
+    }
+}
