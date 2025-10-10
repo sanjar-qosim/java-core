@@ -34,7 +34,7 @@ public class AirplaneController {
             if (i <= 10) {
                 seatClass = "Business";
             } else {
-                seatClass = "Econom";
+                seatClass = "Economy";
             }
             list.add(new Seats(i, seatClass));
         }

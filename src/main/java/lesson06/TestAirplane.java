@@ -1,5 +1,6 @@
 package lesson06;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class TestAirplane {
@@ -9,8 +10,8 @@ public class TestAirplane {
 
         while (true) {
             System.out.println("\n1. Show all seats");
-            System.out.println("2. Order seat");
-            System.out.println("3. Cancel seat");
+            System.out.println("2. Order the seat");
+            System.out.println("3. Cancel the seat");
             System.out.println("4. Information about seat");
             System.out.println("5. Exit");
             System.out.print("Choose an option: ");
