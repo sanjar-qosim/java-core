@@ -1,6 +1,7 @@
 package lesson07;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Seats {
 
@@ -8,16 +9,17 @@ public class Seats {
     private final String seatClass;
     private String userName;
     private Status status;
-    private final LocalDateTime whenFlight;
-    private LocalDateTime whenHold;
-    private LocalDateTime whenConfirmed;
+    private final String whenFlight;
+    private String whenHold;
+    private String whenConfirmed;
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 
     public Seats(int id, String seatClass, LocalDateTime whenFlight) {
         this.id = id;
         this.seatClass = seatClass;
         this.status = Status.FREE;
         this.userName = null;
-        this.whenFlight = whenFlight;
+        this.whenFlight = whenFlight.format(FORMATTER);
     }
 
     public int getId() {
@@ -41,18 +43,19 @@ public class Seats {
         this.status = Status.FREE;
         this.userName = null;
         this.whenHold = null;
+        this.whenConfirmed = null;
     }
 
     public LocalDateTime getWhenHold() {
-        return whenHold;
+        return LocalDateTime.parse(this.whenHold);
     }
 
     public void setWhenHold(LocalDateTime whenHold) {
-        this.whenHold = whenHold;
+        this.whenHold = whenHold.format(FORMATTER);
     }
 
     public void setWhenConfirmed(LocalDateTime whenConfirmed) {
-        this.whenConfirmed = whenConfirmed;
+        this.whenConfirmed = whenConfirmed.format(FORMATTER);
     }
 
     @Override
