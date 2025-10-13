@@ -1,5 +1,8 @@
 package lesson_8;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TestLesson8 {
 
     public static void main(String[] args) {
@@ -20,9 +23,14 @@ public class TestLesson8 {
         parseUniqueInt.addNumbers();
 
         // Task 3
-        Book book = new Book();
-        book.addBook("Ivan", "War 2");
-        book.addBook("John", "Java Language");
-        book.showAllBooks();
+        Book book1 = new Book("Ivan", "War 2");
+        Book book2 = new Book("Ivan", "War 3");
+        Book book3 = new Book("Petr", "Agent");
+
+        AllBooks.addBook(book1);
+        AllBooks.addBook(book2);
+        AllBooks.addBook(book3);
+
+        AllBooks.showAllBooks();
     }
 }
