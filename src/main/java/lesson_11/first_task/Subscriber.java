@@ -2,7 +2,7 @@ package lesson_11.first_task;
 
 public class Subscriber implements Runnable {
 
-    Message message;
+    private final Message message;
     private final String name;
 
     public Subscriber(Message message, String name) {
@@ -12,8 +12,14 @@ public class Subscriber implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i < 5; i++) {
+        while (!Thread.currentThread().isInterrupted()) {
             message.getMessage(this.name);
+            try {
+                Thread.sleep(1500);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                return;
+            }
         }
     }
 }

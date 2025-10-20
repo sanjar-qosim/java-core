@@ -18,16 +18,12 @@ public class Message {
             try {
                 wait();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                Thread.currentThread().interrupt();
             }
         }
+        String msg = messages.get(count);
         count++;
-        System.out.println(name + ": " + messages.getLast());
-        notify();
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        System.out.println(name + ": " + msg);
+        notifyAll();
     }
 }
