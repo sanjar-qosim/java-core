@@ -1,21 +1,68 @@
 package lesson_11.second_task;
 
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.LinkedBlockingDeque;
 
 public class SimpleThreadPool {
 
-    public static void main(String[] args) {
-        System.out.println("Main thread starts...\n");
+    private final int poolSize;
+    private final List<Task1> workers;
+    private final Queue<Runnable> taskQueue;
+    private volatile boolean isShutdown;
 
-        ExecutorService executorService = Executors.newFixedThreadPool(5);
+    public SimpleThreadPool(int poolSize) {
+        this.poolSize = poolSize;
+        this.taskQueue = new LinkedList<>();
+        this.workers = new LinkedList<>();
 
-        for (int i = 0; i < 10; i++) {
-            executorService.submit(new Task1());
+        for (int i = 0; i < poolSize; i++) {
+            Task1 task1 = new Task1("Task-" + i, this);
+            task1.start();
+            workers.add(task1);
         }
+    }
 
-        executorService.shutdown();
+    public void submit(Runnable task) {
+        if (isShutdown) {
+            System.out.println("ThreadPool was shutdown!");
+        }
+        synchronized (taskQueue) {
+            taskQueue.offer(task);
+            taskQueue.notify();
+        }
+    }
+
+    public void shutdown() {
+        isShutdown = true;
+        synchronized (taskQueue) {
+            taskQueue.notifyAll();
+        }
+    }
+
+    Runnable getTask() {
+        synchronized (taskQueue) {
+            while (taskQueue.isEmpty() && !isShutdown) {
+                try {
+                    taskQueue.wait();
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    return null;
+                }
+            }
+            if (isShutdown && taskQueue.isEmpty()) {
+                return null;
+            }
+            return taskQueue.poll();
+        }
+    }
+
+    public boolean isShutdown() {
+        return isShutdown;
     }
 }
