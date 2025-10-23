@@ -24,24 +24,15 @@ public class Test {
         );
 
 //        MethodsStreamApi.evenNumbers(numbers);
-//        MethodForEach.evenNumbers(numbers);
 //        MethodsStreamApi.countLine(words);
-//        MethodForEach.countLine(words);
 //        MethodsStreamApi.minAndMax(nums);
-//        MethodForEach.minAndMax(nums);
 //        MethodsStreamApi.countAvgLine(names);
-//        MethodForEach.countAvgLine(names);
 //        MethodsStreamApi.sortAndDeleteDublicate(input);
-//        MethodForEach.sortAndDeleteDublicate(input);
-        MethodsStreamApi.listToMap(fruits);
-
-        MethodsStreamApi.groupNames(names);
-
-        MethodsStreamApi.separateByCommas(names2);
-
-        MethodsStreamApi.eachWord(sentences);
-
-        MethodsStreamApi.searchTheRichestProduct(products);
+//        MethodsStreamApi.listToMap(fruits);
+//        MethodsStreamApi.groupNames(names);
+//        MethodsStreamApi.separateByCommas(names2);
+//        MethodsStreamApi.eachWord(sentences);
+//        MethodsStreamApi.searchTheRichestProduct(products);
 
     }
 }
