@@ -17,7 +17,6 @@ public class Task_2 {
         System.out.println(isValid.test("Java"));
         System.out.println(isValid.test("Go"));
 
-
         Function<String, Integer> lengthFunc = String::length;
         System.out.println(lengthFunc.apply("Hello"));
 
